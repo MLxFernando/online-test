@@ -42,4 +42,6 @@ public class Exam {
     //anotacion
     @OneToMany(mappedBy = "exam")       //el nombre del atributo en la clase B question, A es la clase examen.
     private List<Question> questions;
+
+    
 }
