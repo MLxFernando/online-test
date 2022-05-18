@@ -3,11 +3,11 @@ package com.online.test.onlinetest.Repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.Id;
+import com.online.test.onlinetest.models.Exam;
 
 @Repository
     
-public interface ExamRepository extends JpaRepository<Id,Long>{
+public interface ExamRepository extends JpaRepository<Exam,Long>{
 
 
 } 
