@@ -1,4 +1,4 @@
-package com.online.test.onlinetest.Repositories;
+package com.online.test.onlinetest.repositories;
 
 public class UserRepository {
     

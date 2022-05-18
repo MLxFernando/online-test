@@ -1,4 +1,4 @@
-package com.online.test.onlinetest.Repositories;
+package com.online.test.onlinetest.repositories;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
