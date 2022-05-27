@@ -1,4 +1,4 @@
-package com.online.test.onlinetest.services;
+package com.online.test.onlinetest.dto.services;
 
 import java.util.List;
 
