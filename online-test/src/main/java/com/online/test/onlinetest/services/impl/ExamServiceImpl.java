@@ -1,4 +1,4 @@
-package com.online.test.onlinetest.dto.impl;
+package com.online.test.onlinetest.services.impl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 
 import com.online.test.onlinetest.dto.ExamDTO;
 import com.online.test.onlinetest.dto.NewExamDTO;
-import com.online.test.onlinetest.dto.services.ExamService;
 import com.online.test.onlinetest.models.Exam;
 import com.online.test.onlinetest.repositories.ExamRepository;
+import com.online.test.onlinetest.services.ExamService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
