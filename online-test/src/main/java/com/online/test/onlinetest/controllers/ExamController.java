@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 //para la ruta del controlador
 @RequestMapping("/exams")
 
+    // post /exams
+    //get /exams/{id}
+    //get /exams
 public class ExamController {
     private final ExamService service;
 
@@ -42,8 +45,8 @@ public class ExamController {
     }
 
 
-    @GetMapping("/(id)")
-    public ResponseEntity<?> retrieve(@PathVariable("id") Long id){
+    @GetMapping("/{id}")
+    public ResponseEntity<?> retrive(@PathVariable("id") Long id){
         try {
             ExamDTO result = service.retrieve(id);
             return ResponseEntity.ok().body(result);
@@ -55,7 +58,7 @@ public class ExamController {
     @PutMapping("/(id)")
     public ResponseEntity<?> update(@RequestBody ExamDTO examDTO, @PathVariable("id") Long id){
         try {
-            ExamDTO result = service.update(examDTO);
+            ExamDTO result = service.update(examDTO, id);
             return ResponseEntity.ok().body(result);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e);
