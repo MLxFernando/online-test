@@ -49,10 +49,11 @@ public class ExamServiceImpl implements ExamService {
 
     @Override
     @Transactional
-    public ExamDTO update(ExamDTO examDTO) throws Exception {
-        Exam exam = examRepository.findById(examDTO.getId())
+    public ExamDTO update(ExamDTO examDTO, Long id) throws Exception {
+        Exam exam = examRepository.findById(id)
                 .orElseThrow(()-> new Exception("Exam not found"));
         
+        exam.setId(id);        
         exam = modelMapper.map(examDTO, Exam.class);
         examRepository.save(exam);       
 
