@@ -37,7 +37,7 @@ public class QuestionServiceImpl implements QuestionService {
     @Transactional
     public QuestionDTO create(Long idExam, NewQuestionDTO questionDTO) {
         Exam exam = examRepository.findById(idExam)
-            .orElseThrow(()-> new ResourceNotFoundException("Exam Not Found"));
+            .orElseThrow(()-> new ResourceNotFoundException("Exam not found"));
         Question question = modelMapper.map(questionDTO, Question.class);    
         question.setExam(exam);
         repository.save(question);
@@ -48,8 +48,8 @@ public class QuestionServiceImpl implements QuestionService {
     @Transactional(readOnly=true)
     public QuestionExamDTO retrieve(Long idExam, Long id) {
         Exam exam = examRepository.findById(idExam)
-            .orElseThrow(()-> new ResourceNotFoundException("exam not found"));
-        Question question = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Question Not Found"));
+            .orElseThrow(()-> new ResourceNotFoundException("Exam not found"));
+        Question question = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Question not found"));
         question.setExam(exam);
         return modelMapper.map(question, QuestionExamDTO.class);
     }
@@ -58,8 +58,8 @@ public class QuestionServiceImpl implements QuestionService {
     @Transactional
     public QuestionExamDTO update(QuestionDTO questionDTO, Long idExam, Long id) {
         Exam exam = examRepository.findById(idExam)
-        .orElseThrow(()-> new ResourceNotFoundException("Exam not Found"));
-        Question question = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("question not found"));
+        .orElseThrow(()-> new ResourceNotFoundException("Exam not found"));
+        Question question = repository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Question not found"));
         question = modelMapper.map(questionDTO, Question.class);
         question.setExam(exam);
         repository.save(question);       
@@ -87,5 +87,9 @@ public class QuestionServiceImpl implements QuestionService {
         //Lambda ->
         return questions.stream().map(q -> modelMapper.map(q, QuestionDTO.class) )
             .collect(Collectors.toList());
-    }   
+    }
+
+
+    
+    
 }

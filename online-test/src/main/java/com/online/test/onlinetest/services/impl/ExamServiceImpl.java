@@ -1,5 +1,6 @@
 package com.online.test.onlinetest.services.impl;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,7 +44,7 @@ public class ExamServiceImpl implements ExamService {
     @Transactional(readOnly = true)
     public ExamDTO retrieve(Long id) {
         Exam exam = examRepository.findById(id)
-            .orElseThrow(()-> new ResourceNotFoundException("Exam Not Found"));
+            .orElseThrow(()-> new ResourceNotFoundException("Exam not found"));
         return modelMapper.map(exam, ExamDTO.class);
     }
 

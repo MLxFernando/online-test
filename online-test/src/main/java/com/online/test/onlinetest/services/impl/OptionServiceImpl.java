@@ -39,8 +39,8 @@ public class OptionServiceImpl implements OptionService {
     @Override
     @Transactional
     public List<OptionDTO> create(Long idExam, Long idQuestion, List<NewOptionDTO> options) {
-        Exam exam = examRepository.findById(idExam).orElseThrow(()-> new ResourceNotFoundException("Exam Not Found"));
-        Question question = questionRepository.findById(idQuestion).orElseThrow(()-> new ResourceNotFoundException("Question Not Found"));
+        Exam exam = examRepository.findById(idExam).orElseThrow(()-> new ResourceNotFoundException("Exam not found"));
+        Question question = questionRepository.findById(idQuestion).orElseThrow(()-> new ResourceNotFoundException("Question not found"));
         question.setExam(exam);
         List<OptionDTO> result = new ArrayList<OptionDTO>();
         for(NewOptionDTO op : options){
@@ -49,6 +49,8 @@ public class OptionServiceImpl implements OptionService {
             repository.save(option);
             result.add(modelMapper.map(option, OptionDTO.class));
         }
+        /*options.forEach(op -> {
+        });        */
         return result;
     }
 

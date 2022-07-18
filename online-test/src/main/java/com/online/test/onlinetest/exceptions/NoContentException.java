@@ -7,3 +7,4 @@ public class NoContentException extends RuntimeException {
     }
     
 }
+

@@ -12,4 +12,3 @@ public interface OptionRepository extends JpaRepository<Option, Long> {
     public List<Option> findByQuestion(Question question);
     
 }
-
